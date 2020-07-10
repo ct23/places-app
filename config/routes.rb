@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     post "/users" => "users#create"    # Create user
+
+    post "/sessions" => "sessions#create"    # Create session
   end
 
 end
