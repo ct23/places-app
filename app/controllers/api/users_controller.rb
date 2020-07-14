@@ -19,15 +19,46 @@ class Api::UsersController < ApplicationController
 
   def show
     # If user with ID params[:id] exists and is equal to current user:
-    if ( @user = User.find_by(id: params[:id] ) && ( @user == current_user ))
+    @user = User.find_by(id: params[:id])
+    if @user == current_user
       render 'show.json.jb'
     else
-      render json: { error: "User does not exist." }, status: :unprocessable_entity
+      render json: { error: "You are not authorized to view this page"}, status: :unauthorized
     end
+    # else
+    #   render json: { error: "User does not exist." }, status: :unprocessable_entity
+    # end
+
   end
 
   def update
-    
+    @user = User.find_by(id: params[:id])
+    if @user == current_user
+      @user.name = params[:name] || @user.name
+      @user.email = params[:email] || @user.email
+      # If user wants to update password:
+      if params[:password] && params[:password_confirmation]
+        @user.password = params[:password]
+        @user.password_confirmation = params[:password_confirmation]
+      end
+      if @user.save
+        render 'show.json.jb'
+      else
+        render json: { errors: @user.errors.full_messages }, status: :bad_request
+      end
+    else
+      render json: { error: "You are not authorized to view this page"}, status: :unauthorized
+    end
+  end
+
+  def destroy
+    @user = User.find_by(id: params[:id])
+    if @user == current_user
+      @user.destroy
+      render json: { message: "User was deleted." }
+    else
+      render json: { error: "You are not authorized to view this page"}, status: :unauthorized
+    end
   end
 
 
