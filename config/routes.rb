@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     post "/users" => "users#create"    # Create user
-
+    get "/users/:id" => "users#show"   # Show user
     post "/sessions" => "sessions#create"    # Create session
   end
 
