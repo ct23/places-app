@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
     if user.save
       render json: { message: "User created successfully" }, status: :created
     else
-      render json: { errors: user.errors.full_messages }, status: :bad_request
+      render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
@@ -26,7 +26,7 @@ class Api::UsersController < ApplicationController
       render json: { error: "You are not authorized to view this page"}, status: :unauthorized
     end
     # else
-    #   render json: { error: "User does not exist." }, status: :unprocessable_entity
+    #   render json: { error: "User does not exist." }, status: :bad_request
     # end
 
   end
@@ -44,7 +44,7 @@ class Api::UsersController < ApplicationController
       if @user.save
         render 'show.json.jb'
       else
-        render json: { errors: @user.errors.full_messages }, status: :bad_request
+        render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
       end
     else
       render json: { error: "You are not authorized to view this page"}, status: :unauthorized
@@ -60,6 +60,5 @@ class Api::UsersController < ApplicationController
       render json: { error: "You are not authorized to view this page"}, status: :unauthorized
     end
   end
-
 
 end

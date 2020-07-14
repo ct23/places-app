@@ -1,0 +1,10 @@
+{
+  name: place.name,
+  yelp_id: place.api_place_id,
+  bar: place.bar,
+  image_url: place.image_url,
+  lat: place.lat,
+  lon: place.lon,
+  category: place.category.name,
+  id: place.id
+}
