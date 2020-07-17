@@ -52,13 +52,19 @@ class Api::UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by(id: params[:id])
-    if @user == current_user
-      @user.destroy
-      render json: { message: "User was deleted." }
+    if ( @user = User.find_by(id: params[:id]) )
+      # If user with specified ID exists
+      if @user == current_user
+        # If specified user is the current user
+        @user.destroy
+        render json: { message: "User was deleted." }
+      else
+        # If specified user is not the current user
+        render json: { error: "You are not authorized to view this page"}, status: :unauthorized
+      end
     else
+      # If user with specified ID does not exist
       render json: { error: "You are not authorized to view this page"}, status: :unauthorized
     end
   end
-
 end

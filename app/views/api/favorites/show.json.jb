@@ -1,0 +1,1 @@
+render partial: "favorite.json.jb", locals: { favorite: @favorite }

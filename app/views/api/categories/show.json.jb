@@ -1,7 +1,8 @@
 category_json = render partial: "category.json.jb", locals: { category: @category }
 
-category_json[:formatted] = {
-  places: @category.places
-}
+# category_json[:formatted] = {
+#   places: @category.places
+# }
+category_json[:places] = @category.places
 
 category_json

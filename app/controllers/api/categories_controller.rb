@@ -6,5 +6,8 @@ class Api::CategoriesController < ApplicationController
   def show
     @category = Category.find_by(id: params[:id])
     render 'show.json.jb'
+  else
+    render json: { error: "Category does not exist." }, status: :bad_request
+  end
   end
 end

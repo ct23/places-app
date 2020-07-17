@@ -20,6 +20,10 @@ Rails.application.routes.draw do
 
     get "/places" => "places#index"
     get "/places/:id" => "places#show"
+
+    get "/favorites" => "favorites#index"
+    post "/favorites" => "favorites#create"
+    delete "/favorites/:id" => "favorites#destroy"
   end
 
 end

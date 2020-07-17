@@ -1,0 +1,7 @@
+{
+  id: favorite.id,
+  user_id: favorite.user_id,
+  place_id: favorite.place_id,
+  user: favorite.user.email,
+  place: favorite.place.name
+}

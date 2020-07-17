@@ -1,0 +1,3 @@
+@favorites.map do |favorite|
+  render partial: "favorite.json.jb", locals: { favorite: favorite }
+end
