@@ -1,7 +1,7 @@
 place_hash = render partial: "place.json.jb", locals: {place: @place}
 
-place_hash[:details] = @place.details(@place.api_place_id)
+place_hash[:yelp_details] = @place.details(@place.api_place_id)
 
-place_hash[:reviews] = @place.reviews(@place.api_place_id)
+place_hash[:yelp_reviews] = @place.reviews(@place.api_place_id)
 
 place_hash
