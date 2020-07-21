@@ -1,3 +1,5 @@
 @favorites.map do |favorite|
-  render partial: "favorite.json.jb", locals: { favorite: favorite }
+  favorite_hash = render partial: "favorite.json.jb", locals: { favorite: favorite }
+  favorite_hash[:place] = render partial: "api/places/place.json.jb", locals: { place: favorite.place }
+  favorite_hash
 end
