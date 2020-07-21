@@ -1,8 +1,10 @@
-category_json = render partial: "category.json.jb", locals: { category: @category }
+category_hash = render partial: "category.json.jb", locals: { category: @category }
 
-# category_json[:formatted] = {
+# category_hash[:formatted] = {
 #   places: @category.places
 # }
-category_json[:places] = @category.places
+category_hash[:places] = @category.places.map do |place|
+  render partial: "/api/places/place.json.jb", locals: { place: place }
+end
 
-category_json
+category_hash
