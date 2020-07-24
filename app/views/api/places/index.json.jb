@@ -7,6 +7,9 @@
     else
       places_hash[:is_favorite] = false
     end
+  else
+    # If not logged in, place is not a favorite
+    places_hash[:is_favorite] = false
   end
   places_hash
 end

@@ -7,6 +7,9 @@ if (current_user)
   else
     place_hash[:is_favorite] = false
   end
+else
+  # If not logged in, place is not a favorite
+  places_hash[:is_favorite] = false
 end
 
 place_hash[:yelp_details] = @place.details(@place.api_place_id)
