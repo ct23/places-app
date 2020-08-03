@@ -4,7 +4,7 @@ if (current_user)
   # If someone is logged in, return true if they have favorited this place
   if (current_user.favorites.find_by(place_id: @place.id) )
     place_hash[:is_favorite] = true
-    places_hash[:favorite_id] = place.favorites[0].id
+    place_hash[:favorite_id] = @place.favorites[0].id
   else
     place_hash[:is_favorite] = false
   end
