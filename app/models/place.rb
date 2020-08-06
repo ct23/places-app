@@ -18,12 +18,13 @@ class Place < ApplicationRecord
   def self.yelp_seed
     Place.all.each do |place|
       if !place.api_place_id
-        response = HTTP.get("https://api.yelp.com/v3/businesses/search?location=Chicago&term=#{place.name.gsub(" ", "%20")}", :headers => { :Authorization => "Bearer #{Rails.application.credentials.yelp_api[:api_key]}"})
-        place.update(
-          api_place_id: response.parse["businesses"][0]["id"],
-          image_url: response.parse["businesses"][0]["image_url"],
-          lat: response.parse["businesses"][0]["coordinates"]["latitude"],
-          lon: response.parse["businesses"][0]["coordinates"]["longitude"])
+        if response = HTTP.get("https://api.yelp.com/v3/businesses/search?location=Chicago&term=#{place.name.gsub(" ", "%20")}", :headers => { :Authorization => "Bearer #{Rails.application.credentials.yelp_api[:api_key]}"})
+          place.update(
+            api_place_id: response.parse["businesses"][0]["id"],
+            image_url: response.parse["businesses"][0]["image_url"],
+            lat: response.parse["businesses"][0]["coordinates"]["latitude"],
+            lon: response.parse["businesses"][0]["coordinates"]["longitude"])
+        end
       end
     end
   end
