@@ -25,18 +25,6 @@ Category.create!([
   {name: "Sushi"},
   {name: "Pizza/Italian"}
 ])
-Favorite.create!([
-  {user_id: 1, place_id: 3},
-  {user_id: 2, place_id: 12},
-  {user_id: 2, place_id: 14},
-  {user_id: 2, place_id: 78},
-  {user_id: 2, place_id: 20},
-  {user_id: 2, place_id: 27},
-  {user_id: 2, place_id: 32},
-  {user_id: 2, place_id: 61},
-  {user_id: 2, place_id: 81},
-  {user_id: 2, place_id: 83}
-])
 Place.create!([
   {name: "Ain't She Sweet Cafe", api_place_id: "IRnNJNVlSyhQG0lBfzsZaA", bar: false, image_url: "https://s3-media2.fl.yelpcdn.com/bphoto/99TZgCMxiLxeoLlDLJvL7w/o.jpg", lat: 41.8168655, lon: -87.612947, category_id: 3},
   {name: "AndySunflower Cafe", api_place_id: "Imy7MhrTq0z-GQ5RjN_USg", bar: false, image_url: "https://s3-media2.fl.yelpcdn.com/bphoto/PmFDIyonCVWAcg8dsW6mtA/o.jpg", lat: 41.713268, lon: -87.682102, category_id: 3},
@@ -217,4 +205,16 @@ Place.create!([
   {name: "Surf's Up Oak Park", api_place_id: "mdWbS2XCQFnV0aaB2WCasQ", bar: false, image_url: "https://s3-media2.fl.yelpcdn.com/bphoto/g80u74L40qB93-Ah2vVVuQ/o.jpg", lat: 41.968411, lon: -87.726525, category_id: 9},
   {name: "Hecky's BBQ", api_place_id: "Lm763QD0eaF40GfAjr3KGA", bar: false, image_url: "https://s3-media2.fl.yelpcdn.com/bphoto/kojmNou9GeGLw4qEFVgxbA/o.jpg", lat: 42.0522712049013, lon: -87.6888791287506, category_id: 7},
   {name: "Lems BBQ", api_place_id: "-yUfaRAjvgm_rmdqAsqxIg", bar: false, image_url: "https://s3-media1.fl.yelpcdn.com/bphoto/ly5fAEFDjwOJGuPsm_M1SA/o.jpg", lat: 41.758073, lon: -87.617611, category_id: 7}
+])
+Favorite.create!([
+  {user_id: 1, place_id: 3},
+  {user_id: 2, place_id: 12},
+  {user_id: 2, place_id: 14},
+  {user_id: 2, place_id: 78},
+  {user_id: 2, place_id: 20},
+  {user_id: 2, place_id: 27},
+  {user_id: 2, place_id: 32},
+  {user_id: 2, place_id: 61},
+  {user_id: 2, place_id: 81},
+  {user_id: 2, place_id: 83}
 ])
